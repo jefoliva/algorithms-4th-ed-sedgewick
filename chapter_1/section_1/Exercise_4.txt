@@ -1,0 +1,6 @@
+1.1.4 What (if anything) is wrong with each of the following statements?
+a. if (a > b) then c = 0;		// A: "then" is not a keyword
+	
+b. if a > b { c = 0; } 			// A: condition should be between the parentheses
+c. if (a > b) c = 0;			// A: OK
+d. if (a > b) c = 0 else b = 0;	// A: ";" missing in "c = 0"
