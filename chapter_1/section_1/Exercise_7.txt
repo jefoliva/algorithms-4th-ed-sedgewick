@@ -1,0 +1,7 @@
+1.1.7 Give the value printed by each of the following code fragments:
+
+a.	3.00009 
+
+b.  499500
+
+c.  Answer is N multiplied by 10

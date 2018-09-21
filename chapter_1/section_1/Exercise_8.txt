@@ -1,0 +1,9 @@
+What do each of the following print?
+a. System.out.println('b');
+   ANSWER: b
+
+b. System.out.println('b' + 'c');
+   ANSWER: 197
+
+c. System.out.println((char) ('a' + 4));
+   ANSWER: e
