@@ -1,0 +1,8 @@
+1.1.24 Give the sequence of values of p and q that are computed when Euclid’s algorithm is used to compute the greatest common divisor of 105 and 24.
+
+ANSWER:
+gcd(105, 24);
+gcd( 24,  9);
+gcd(  9,  6);
+gcd(  6,  3);
+gcd(  3,  0);
