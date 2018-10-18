@@ -23,7 +23,6 @@ import edu.princeton.cs.algs4.StdRandom;
 /**
  * @author Jefoliva
  */
-
 public class Exercise_37_BadShuffling {
 
 	// Bad shuffling
