@@ -1,0 +1,8 @@
+1.2.5 What does the following code fragment print?
+String s = "Hello World";
+s.toUpperCase();
+s.substring(6, 11);
+StdOut.println(s);
+// Prints "Hello World" given that strings are immutable 
+// and values returned by functions are not being assigned
+// to the variable.
