@@ -1,0 +1,5 @@
+1.2.8 Suppose that a[] and b[] are each integer arrays consisting of millions of integers. What does the follow code do? Is it reasonably efficient?
+int[] t = a; a = b; b = t;
+
+// This code only copy reference values, it is equally efficient no matter how 
+// many numbers there are in the array, 
