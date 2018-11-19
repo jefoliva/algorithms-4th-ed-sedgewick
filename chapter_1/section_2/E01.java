@@ -1,13 +1,13 @@
 /******************************************************************************
- *  Compilation:  javac Exercise_01.java
- *  Execution:    java Exercise_01 N
+ *  Compilation:  javac E01.java
+ *  Execution:    java E01 N
  *  Dependencies: StdOUt.java StdIn.java StdPoint2D.java
  *
  *  Description: Write a Point2D client that takes an integer value N from the 
  *  command line, generates N random points in the unit square, and computes the 
  *  distance separating the closest pair of points.
  *  
- * % java Exercise_01 50
+ * % java E01 50
  * Closest Points are: (38.93, 92.59) and (39.47, 91.76)
  * Distance: 0.988 
  ******************************************************************************/
@@ -20,10 +20,10 @@ import edu.princeton.cs.algs4.Point2D;
 /**
  * @author Jefoliva
  */
-public class Exercise_01 {
+public class E01 {
 	public static void main(String[] args) {
         if(args.length != 1) {
-            StdOut.println("Usage: java Exercise_01 N");
+            StdOut.println("Usage: java E01 N");
             return;
         }
 
