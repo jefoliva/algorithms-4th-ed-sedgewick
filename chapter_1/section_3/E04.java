@@ -17,7 +17,7 @@
  *  r1 divides r2: 6/1
  *  r1 equals r2:  false
  ******************************************************************************/
-// package ch01.section_2;
+package chapter_1.section_3;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdIn;
 import java.util.*;
@@ -76,34 +76,34 @@ class Stack<Item> implements Iterable<Item> {
   }
 
   public static void main(String[] args) {
-  	Stack<String> s = new Stack<String>();
+  	Stack<Character> s = new Stack<Character>();
   	boolean isBalanced = true;
 
   	while(!StdIn.isEmpty()) {
-  		String item = StdIn.readString();
+  		char item = StdIn.readChar();
 
-  		if(item.equals("(") || item.equals("{") || item.equals("["))
+  		if(item == '(' || item == '{' || item == '[')
   			s.push(item);
-  		else if(item.equals(")")) {
-  			String str = s.pop();
+  		else if(item == ')') {
+  			char ch = s.pop();
 
-  			if(!str.equals("(")) {
+  			if(ch != '(') {
   				isBalanced = false;
   				break;
   			}
   		}
-  		else if(item.equals("}")) {
-  			String str = s.pop();
+  		else if(item == '}') {
+  			char ch = s.pop();
 
-  			if(!str.equals("{")) {
+  			if(ch != '{') {
   				isBalanced = false;
   				break;
   			}
   		}
-  		else if(item.equals("]")) {
-  			String str = s.pop();
+  		else if(item == ']') {
+  			char ch = s.pop();
 
-  			if(!str.equals("[")) {
+  			if(ch != '[') {
   				isBalanced = false;
   				break;
   			}
