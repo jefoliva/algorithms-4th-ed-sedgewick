@@ -1,34 +1,74 @@
 /******************************************************************************
- *  Compilation:  javac E16_Rational 
- *  Execution:    java E16_Rational  
- *  Dependencies: StdOut 
+ *  Compilation:  javac E04 
+ *  Execution:    java E04  
+ *  Dependencies: StdOut StdIn
  *	
- *  Description: 1.2.16 Rational numbers. Implement an immutable data type Rational for rational
- *  numbers that supports addition, subtraction, multiplication, and division.
+ *  Description: 1.3.4 Write a stack client Parentheses that reads in a text stream from standard input
+ *  and uses a stack to determine whether its parentheses are properly balanced. For example, your program 
+ *  should print true for [()]{}{[()()]()} and false for [(])
  *
  *  Example execution: 
- *  % java E16_Rational
- *  Let:
- *  r1 = 9/16
- *  r2 = 3/32
- *  r1 plus r2:    21/32
- *  r1 minus r2:   15/32
- *  r1 times r2:   27/512
- *  r1 divides r2: 6/1
- *  r1 equals r2:  false
+ *  % java E04
+ *  [()]{}{[()()]()}
+ *  true
+ *  [(])
+ *  false
  ******************************************************************************/
 package chapter_1.section_3;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdIn;
 import java.util.*;
+
 /**
  * @author Jefoliva
  */
 
 public class E04 {
+  public static boolean isMatchingPair(char a, char b) {
+    if      (a == '(' && b == ')') return true;
+    else if (a == '{' && b == '}') return true;
+    else if (a == '[' && b == ']') return true;
+    
+    return false;
+  }
+
 	public static void main(String[] args) {
-		Stack.main(args);
-	}
+    Stack<Character> s = new Stack<Character>();
+    boolean isBalanced = true;
+
+    if(StdIn.isEmpty()) {
+      StdOut.println("Empty input. Try a valid expression");
+      return;
+    }
+
+    while(!StdIn.isEmpty()) {
+      char item = StdIn.readChar();
+
+      if(item == '(' || item == '{' || item == '[')
+        s.push(item);
+      else if(item == ')' || item == '}' || item == ']') {
+        // If it finds an end parenthesis without a matching pair
+        // it is not balanced
+        if(s.isEmpty()) {
+          isBalanced = false;
+          break;
+        }
+
+        // if popped item is not matching pair with current item
+        // break loop
+        if(!isMatchingPair(s.pop(), item)) {
+          isBalanced = false;
+          break;
+        }     
+      } 
+    }
+
+    // If stack is empty and isBalance evaluates to true, expression
+    // is balanced. If not empty it means there is a starting parenthesis 
+    // without a matching pair.
+    StdOut.print("is balanced: ");
+    StdOut.println(s.isEmpty() && isBalanced ? true : false );
+  }
 }
 
 class Stack<Item> implements Iterable<Item> {
@@ -64,7 +104,7 @@ class Stack<Item> implements Iterable<Item> {
   	}
 
   private class ListIterator implements Iterator<Item> {
-    private Node current;
+    private Node current = first;
 
     public boolean hasNext() { return current != null; }
     public Item next() {
@@ -75,41 +115,5 @@ class Stack<Item> implements Iterable<Item> {
     public void remove() { throw new UnsupportedOperationException(); }
   }
 
-  public static void main(String[] args) {
-  	Stack<Character> s = new Stack<Character>();
-  	boolean isBalanced = true;
-
-  	while(!StdIn.isEmpty()) {
-  		char item = StdIn.readChar();
-
-  		if(item == '(' || item == '{' || item == '[')
-  			s.push(item);
-  		else if(item == ')') {
-  			char ch = s.pop();
-
-  			if(ch != '(') {
-  				isBalanced = false;
-  				break;
-  			}
-  		}
-  		else if(item == '}') {
-  			char ch = s.pop();
-
-  			if(ch != '{') {
-  				isBalanced = false;
-  				break;
-  			}
-  		}
-  		else if(item == ']') {
-  			char ch = s.pop();
-
-  			if(ch != '[') {
-  				isBalanced = false;
-  				break;
-  			}
-  		}
-  	}
-
-  	StdOut.println(isBalanced ? "Is balanced" : "Is not balanced");
-  }
+  
 }
