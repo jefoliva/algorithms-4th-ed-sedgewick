@@ -1,79 +1,65 @@
 /******************************************************************************
- *  Compilation:  javac E35 
- *  Execution:    java E35  
+ *  Compilation:  javac E36 
+ *  Execution:    java E36  
  *  Dependencies: StdOut StdRandom
  *  
- *  Description: 1.3.35 Random queue. A random queue stores a collection of 
- *  items and supports the following API:
- *  public class RandomQueue<Item>
- *      RandomQueue()           create an empty random queue
- *      boolean isEmpty()       is the queue empty?
- *      void enqueue(Item item) add an item
- *      Item dequeue()          remove and return a random item (sample without replacement)
- *      Item sample()           return a random item, but do not remove   
- *                              (sample with replacement)
+ *  Description: 1.3.36 Random iterator. Write an iterator for RandomQueue<Item>
+ *  from the previous exercise that returns the items in random order.
  *
  *  Example execution:
- *  % java E35
- *  North:
- *  3 of spades
- *  J of clubs
+ *  % java E36
+ *   Q of diamonds
+ *   A of spades
+ *   9 of hearts
+ *   2 of clubs
+ *   A of clubs
+ *   J of hearts
+ *   A of hearts
+ *   8 of hearts
+ *   5 of diamonds
+ *   7 of diamonds
+ *   7 of spades
+ *   3 of diamonds
+ *   2 of hearts
+ *   3 of hearts
+ *   2 of spades
+ *  10 of hearts
+ *   A of diamonds
+ *   8 of clubs
+ *   4 of diamonds
  *  10 of clubs
- *  4 of diamonds
- *  3 of hearts
- *  5 of clubs
- *	Q of spades
- * 	K of spades
- * 	10 of diamonds
- *	10 of hearts
- * 	A of spades
- * 	8 of diamonds
- * 	8 of hearts
- *
- *	East:
- *	6 of clubs
- *	8 of spades
- *	J of diamonds
- *	9 of hearts
- *	J of hearts
- *	6 of spades
- *	J of spades
- *	10 of spades
- *	A of clubs
- *	K of hearts
- *	Q of clubs
- *	Q of hearts
- *	9 of spades
- *	
- *	South:
- *	2 of clubs
- *	2 of spades
- *	5 of diamonds
- *	5 of spades
- *	K of clubs
- *	5 of hearts
- *	4 of spades
- *	6 of hearts
- *	7 of clubs
- *	A of diamonds
- *	4 of hearts
- *	7 of spades
- *	8 of clubs
- * 
- *	West:
- *	2 of diamonds
- *	K of diamonds
- *	9 of clubs
- *	7 of hearts
- *	Q of diamonds
- *	9 of diamonds
- *	4 of clubs
- *	6 of diamonds
- *	3 of diamonds
- *	2 of hearts
- *	7 of diamonds
- *	3 of clubs
- *	A of hearts
+ *   J of clubs
+ *   6 of clubs
+ *   5 of clubs
+ *   K of spades
+ *   8 of spades
+ *   K of clubs
+ *  10 of diamonds
+ *   Q of clubs
+ *   9 of spades
+ *   6 of hearts
+ *   3 of spades
+ *   4 of spades
+ *   4 of clubs
+ *   7 of hearts
+ *   J of diamonds
+ *   6 of diamonds
+ *   J of spades
+ *   8 of diamonds
+ *   9 of diamonds
+ *  10 of spades
+ *   Q of spades
+ *   5 of hearts
+ *   Q of hearts
+ *   K of hearts
+ *   7 of clubs
+ *   2 of diamonds
+ *   9 of clubs
+ *   4 of hearts
+ *   3 of clubs
+ *   5 of spades
+ *   K of diamonds
+ *   6 of spades
  ******************************************************************************/
 package chapter_1.section_3;
 import edu.princeton.cs.algs4.StdOut;
@@ -85,7 +71,7 @@ import java.util.Iterator;
  * @author jefoliva
  */
 
-public class E35 {
+public class E36 {
     public static void main(String[] args) {
         RandomQueue.main(args);
     }
@@ -153,6 +139,18 @@ class RandomQueue<Item> implements Iterable<Item> {
         public boolean hasNext()  { return i < N; }
         public void remove()      { throw new UnsupportedOperationException();  }
 
+        public ArrayIterator() {
+            int n = N;
+
+            // Shuffle array
+            for (int i = 0; i < n; i++) {
+                int r = i + StdRandom.uniform(n-i);     // between i and n-1
+                Item temp = q[i];
+                q[i] = q[r];
+                q[r] = temp;
+            }
+        }
+
         public Item next() {
             if (!hasNext()) throw new NoSuchElementException();
             Item item = q[i];
@@ -175,28 +173,24 @@ class RandomQueue<Item> implements Iterable<Item> {
     		}
     	}
 
-    	// Deal bridge cards randomly
-    	for(int i = 0; i < players.length; i++) {
-    		StdOut.println(players[i] + ": ");
-    		for(int j = 0; j < cardsPerPlayer; j++) {
-    			StdOut.println(bridgeDeck.dequeue());
-    		}
-    		StdOut.println();
-    	}
+    	// Iterate bridgeDeck randomly
+    	for(Card currentCard : bridgeDeck) {
+            StdOut.println(currentCard);
+        }
     }
 }
 
 class Card {
-    private String value;
-    private String suit;
+	private String value;
+	private String suit;
 
-    public Card(String value, String suit) {
-        this.value = value;
-        this.suit = suit;
-    }
+	public Card(String value, String suit) {
+		this.value = value;
+		this.suit = suit;
+	}
 
-    @Override
-    public String toString() {
-        return String.format("%-2s of %-8s", value, suit);
-    }
+	@Override
+ 	public String toString() {
+ 		return String.format("%2s of %-8s", value, suit);
+ 	}
 }
