@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac E38 
- *  Execution:    java E38  
+ *  Compilation:  javac E38_DeleteKthElement 
+ *  Execution:    java E38_DeleteKthElement  
  *  Dependencies: StdOut Queue
  *  
  *  Description: 1.3.38 Delete kth element. Implement a class that supports the 
@@ -18,7 +18,7 @@
  *  take time prortional to the logarithm of the number of items in the queue
  *  
  *  Example execution:
- *  % java E38 
+ *  % java E38_DeleteKthElement 
  *  ARRAY IMPLEMENTATION:
  *  Queue contents: 0 1 2 3 4 5 6 7 8
  *  insert(9):      0 1 2 3 4 5 6 7 8 9
@@ -43,7 +43,7 @@ import java.util.Iterator;
  * @author jefoliva
  */
 
-public class E38 {
+public class E38_DeleteKthElement {
     public static void main(String[] args) {
         ArrayGeneralizedQueue.main(args);
         GeneralizedQueue.main(args);
@@ -80,9 +80,9 @@ class ArrayGeneralizedQueue<Item> implements Iterable<Item> {
         else if (k < 0 || k >= N)   throw new NoSuchElementException("Invalid index");
 
         Item item = q[k];
-        q[k] = null;        // Avoid loittering
+        q[k] = null;            // Avoid loittering
 
-        // Move array to left unless it is the last element
+        // Move array to left unless the deleted element is the last one
         if(k != N-1)
             moveToLeft(k);
         N--;

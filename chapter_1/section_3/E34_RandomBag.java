@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac E34 
- *  Execution:    java E34  
+ *  Compilation:  javac E34_RandomBag 
+ *  Execution:    java E34_RandomBag  
  *  Dependencies: StdOut StdRandom
  *  
  *  Description: 1.3.34 Random bag. A random bag stores a collection of items 
@@ -18,7 +18,7 @@
  *  randomize their order in the iterator’s constructor.
  *
  *  Example execution:
- *  % java E34
+ *  % java E34_RandomBag
  *  Original LIFO order inside bag:
  *  10 9 8 7 6 5 4 3 2 1 0
  * 
@@ -39,7 +39,7 @@ import java.util.Iterator;
  * @author jefoliva
  */
 
-public class E34 {
+public class E34_RandomBag {
     public static void main(String[] args) {
         RandomBag.main(args);
     }

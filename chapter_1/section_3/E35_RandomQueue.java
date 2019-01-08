@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac E35 
- *  Execution:    java E35  
+ *  Compilation:  javac E35_RandomQueue 
+ *  Execution:    java E35_RandomQueue  
  *  Dependencies: StdOut StdRandom
  *  
  *  Description: 1.3.35 Random queue. A random queue stores a collection of 
@@ -14,7 +14,7 @@
  *                              (sample with replacement)
  *
  *  Example execution:
- *  % java E35
+ *  % java E35_RandomQueue
  *  North:
  *  3 of spades
  *  J of clubs
@@ -85,7 +85,7 @@ import java.util.Iterator;
  * @author jefoliva
  */
 
-public class E35 {
+public class E35_RandomQueue {
     public static void main(String[] args) {
         RandomQueue.main(args);
     }

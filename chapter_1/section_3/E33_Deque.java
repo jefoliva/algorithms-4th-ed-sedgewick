@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac E33 
- *  Execution:    java E33  
+ *  Compilation:  javac E33_Deque
+ *  Execution:    java E33_Deque 
  *  Dependencies: StdOut
  *  
  *  Description: 1.3.33 Deque. A double-ended queue or deque (pronounced "deck") 
@@ -16,7 +16,7 @@
  *  Item popRight()           remove an item from the right end
  *
  *  Example execution:
- *  % java E33 
+ *  % java E33_Deque
  *  Doubly-linked list deque:
  *  deque contents:   b d e f g
  *  pushLeft(a):      a b d e f g
@@ -41,7 +41,7 @@ import java.util.Iterator;
  * @author jefoliva
  */
 
-public class E33 {
+public class E33_Deque{
     public static void main(String[] args) {
         StdOut.println("Doubly-linked list deque:");
         Deque.main(args);

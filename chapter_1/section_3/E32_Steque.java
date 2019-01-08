@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac E32 
- *  Execution:    java E32  
+ *  Compilation:  javac E32_Steque 
+ *  Execution:    java E32_Steque  
  *  Dependencies: StdOut
  *  
  *  Description: 1.3.32 Steque. A stack-ended queue or steque is a data type 
@@ -8,7 +8,7 @@
  *  a linked-list-based implementation.
  *
  *  Example execution:
- *  % java E32 
+ *  % java E32_Steque 
  *  List contents: d c b
  *  enqueue(a):    d c b a
  *  push(e):       e d c b a
@@ -31,7 +31,7 @@ import java.util.Iterator;
  * @author jefoliva
  */
 
-public class E32 {
+public class E32_Steque {
     public static void main(String[] args) {
        Steque.main(args);
     }

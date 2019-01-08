@@ -1,13 +1,13 @@
 /******************************************************************************
- *  Compilation:  javac E36 
- *  Execution:    java E36  
+ *  Compilation:  javac E36_RandomIterator 
+ *  Execution:    java E36_RandomIterator  
  *  Dependencies: StdOut StdRandom
  *  
  *  Description: 1.3.36 Random iterator. Write an iterator for RandomQueue<Item>
  *  from the previous exercise that returns the items in random order.
  *
  *  Example execution:
- *  % java E36
+ *  % java E36_RandomIterator
  *   Q of diamonds
  *   A of spades
  *   9 of hearts
@@ -71,7 +71,7 @@ import java.util.Iterator;
  * @author jefoliva
  */
 
-public class E36 {
+public class E36_RandomIterator {
     public static void main(String[] args) {
         RandomQueue.main(args);
     }

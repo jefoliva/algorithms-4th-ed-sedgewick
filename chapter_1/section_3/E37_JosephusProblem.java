@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac E37 
- *  Execution:    java E37  
+ *  Compilation:  javac E37_JosephusProblem 
+ *  Execution:    java E37_JosephusProblem  
  *  Dependencies: StdOut Queue
  *  
  *  Description: 1.3.37 Josephus problem. In the Josephus problem from antiquity,
@@ -13,7 +13,7 @@
  *  would show Josephus where to sit in the circle).
  *  
  *  Example execution:
- *  % java E37 7 2
+ *  % java E37_JosephusProblem 7 2
  *   1 3 5 0 4 2 6
  ******************************************************************************/
 package chapter_1.section_3;
@@ -24,7 +24,7 @@ import edu.princeton.cs.algs4.Queue;
  * @author jefoliva
  */
 
-public class E37 {
+public class E37_JosephusProblem {
     public static void main(String[] args) {
         Josephus.main(args);
     }
