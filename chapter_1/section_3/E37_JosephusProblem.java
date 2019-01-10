@@ -1,6 +1,6 @@
 /******************************************************************************
  *  Compilation:  javac E37_JosephusProblem 
- *  Execution:    java E37_JosephusProblem  
+ *  Execution:    java E37_JosephusProblem  7 2
  *  Dependencies: StdOut Queue
  *  
  *  Description: 1.3.37 Josephus problem. In the Josephus problem from antiquity,
