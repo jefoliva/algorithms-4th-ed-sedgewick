@@ -74,18 +74,14 @@ class StackGenerability {
     	// keeps track of the next value to push on the stack (from 0 to 9)
     	int currentpush = 0;	
     	for(String value : output) {
-<<<<<<< HEAD
-    		// Current integer in the output
-=======
-    		// Current int in the output
->>>>>>> 8187dcd7421b789ba7a9ad8e1430534b4c536f58
+    		// Current integer in the output permutation
     		int outputint = Integer.parseInt(value);	
 
     		while(currentpush <= outputint)	
     			s.push(currentpush++);
 
     		// If the current integer in the ouput permutaion is equal to the
-    		// top of the stack pop the element
+    		// one on the top of the stack, pop the element
     		if(s.peek() == outputint)
     			s.pop();
     	}
