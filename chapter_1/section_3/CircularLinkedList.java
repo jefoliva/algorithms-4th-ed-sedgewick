@@ -82,14 +82,6 @@ public class CircularLinkedList<Item> implements Iterable<Item> {
         list.add("name");
         list.add("is");
         list.add("Mud.");
-        list.add("My");
-        list.add("name");
-        list.add("is");
-        list.add("Mud.");
-        list.add("My");
-        list.add("name");
-        list.add("is");
-        list.add("Mud.");
 
         StdOut.print("List contents: ");
         for(String item : list)
