@@ -9,14 +9,15 @@
  *
  *  Example execution:
  *  % java E01 < E01data.txt
- *  9-0: [ 0 1 2 3 4 5 6 7 8 0 10 11 12 13 14 15 ] accesses: 19
- *  5-8: [ 0 1 2 4 4 8 6 7 8 0 10 11 12 13 14 15 ] accesses: 19
- *  7-2: [ 0 1 2 4 4 8 6 2 8 0 10 11 12 13 14 15 ] accesses: 19
- *  2-1: [ 0 1 1 4 4 8 6 1 8 0 10 11 12 13 14 15 ] accesses: 20
- *  5-7: [ 0 1 1 4 4 1 6 1 1 0 10 11 12 13 14 15 ] accesses: 20
- *  0-3: [ 4 1 1 4 4 1 6 1 1 4 10 11 12 13 14 15 ] accesses: 20
- *  4-2: [ 1 1 1 1 1 1 6 1 1 1 10 11 12 13 14 15 ] accesses: 22
- *  Components: 8
+ *  9-0: [ 0 1 2 3 4 5 6 7 8 0 ] accesses: 13
+ *  3-4: [ 0 1 2 4 4 5 6 7 8 0 ] accesses: 13
+ *  5-8: [ 0 1 2 4 4 8 6 7 8 0 ] accesses: 13
+ *  7-2: [ 0 1 2 4 4 8 6 2 8 0 ] accesses: 13
+ *  2-1: [ 0 1 1 4 4 8 6 1 8 0 ] accesses: 14
+ *  5-7: [ 0 1 1 4 4 1 6 1 1 0 ] accesses: 14
+ *  0-3: [ 4 1 1 4 4 1 6 1 1 4 ] accesses: 14
+ *  4-2: [ 1 1 1 1 1 1 6 1 1 1 ] accesses: 16
+ *  Components: 2
  ******************************************************************************/
 package chapter_1.section_5;
 
@@ -29,15 +30,15 @@ import edu.princeton.cs.algs4.StdOut;
  
 public class E01 {
 	public static void main(String[] args) {
-		UF.main(args);
+		UF01.main(args);
 	}
 }
 
-class UF {
+class UF01 {
 	int[] id;
 	int count;
 
-	public UF(int N) {
+	public UF01(int N) {
 		count = N;
 		id = new int[N];
 
@@ -58,14 +59,13 @@ class UF {
 	public int union(int p, int q) {
 		int pID = find(p);
 		int qID = find(q);
-		int accesses = 2;		// 2 array accesses por find(p) and find(q)	
+		int accesses = 2;		// 2 array accesses for find(p) and find(q)	
 
 		if(pID == qID) return accesses;
 
 		for(int i = 0; i < id.length; i++) {
 			if(id[i] == pID) {
 				id[i] = qID;
-
 				accesses += 2;
 			} else {
 				accesses++;
@@ -77,7 +77,7 @@ class UF {
 
 	public static void main(String[] args) {
 		int N = StdIn.readInt();
-		UF uf = new UF(N);
+		UF01 uf = new UF01(N);
 
 		while(!StdIn.isEmpty()) {
 			int p = StdIn.readInt();
@@ -91,7 +91,7 @@ class UF {
 			for(int i : uf.id) {
 				System.out.print(i + " ");
 			}
-			System.out.println(" ] accesses: " + accesses);
+			System.out.println("] accesses: " + accesses);
 		}
 		System.out.println("Components: " + uf.count());
 	}
