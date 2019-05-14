@@ -1,0 +1,7 @@
+John 98 89
+Mariah 99 90
+Hermione 100 100
+Bellatrix 88 70
+Snape 91 93
+Hagrid 61 63
+Grindewald 88 94
