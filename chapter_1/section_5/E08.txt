@@ -1,0 +1,16 @@
+1.5.8 Give a counterexample that shows why this intuitive implementation of union()
+for quick-find is not correct:
+
+
+public void union(int p, int q)
+{
+	if (connected(p, q)) return;
+
+	// Rename p’s component to q’s name.
+	for (int i = 0; i < id.length; i++)
+		if (id[i] == id[p]) id[i] = id[q];
+	count--;
+}
+
+ANSWER: Every time the condition inside the loop is true, the value of id[i] changes.
+while in the correct solution we hold the inicial value of id[i]
